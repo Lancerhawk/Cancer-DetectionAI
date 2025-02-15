@@ -32,6 +32,12 @@ function Navbar({ theme, toggleTheme }) {
           <li className="mobile-only">
             <Link to="/signup" onClick={() => setIsMenuOpen(false)} className="btn btn-primary">Sign Up</Link>
           </li>
+          {/* Mobile theme toggle */}
+          <li className="mobile-only">
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {theme === 'light' ? <FaMoon /> : <FaSun />}
+            </button>
+          </li>
         </ul>
 
         <div className="auth-buttons">
