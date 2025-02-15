@@ -1,0 +1,56 @@
+.history-container {
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+.history-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.history-card {
+    background-color: var(--card-background);
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.history-card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.history-card p {
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.history-buttons {
+    margin-top: 10px;
+}
+
+.history-buttons button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+.history-buttons button:hover {
+    background-color: var(--secondary-color);
+}
+
+.history-buttons button:last-child {
+    background-color: var(--primary-color);
+}
+
+.history-buttons button:last-child:hover {
+    background-color: var(--gradient-start);
+}

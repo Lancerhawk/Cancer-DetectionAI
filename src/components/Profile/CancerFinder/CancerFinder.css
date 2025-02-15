@@ -1,0 +1,150 @@
+.cancer-detail {
+    padding: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .upload-section {
+    margin-bottom: 20px;
+  }
+  
+  .upload-section input {
+    margin-top: 10px;
+  }
+  
+  .begin-analysis {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .begin-analysis:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .alert-card {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+  }
+  
+  .alert-normal {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .alert-benign {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+  }
+  
+  .alert-malignant {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .normal-message {
+    font-weight: bold;
+    color: #155724;
+  }
+  
+  .benign-message {
+    font-weight: bold;
+    color: #856404;
+  }
+  
+  .malignant-message {
+    font-weight: bold;
+    color: #721c24;
+  }
+  
+  .warning-message {
+    font-weight: bold;
+    color: #856404;
+  }
+  
+  .normal-precautions, .benign-precautions, .malignant-precautions, .warning-precautions {
+    font-size: 1.1em;
+    margin-top: 10px;
+  }
+
+  .heading-upload{
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding-bottom: 0;
+  }
+  
+  .appointment-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .appointment-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .scan-images {
+    margin-top: 20px;
+  }
+  
+  .scan-images img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+  
+.alert-card p{
+    color: black;
+}
+
+
+
+.loading-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+}

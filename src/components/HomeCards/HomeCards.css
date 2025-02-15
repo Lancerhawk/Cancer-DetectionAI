@@ -1,0 +1,73 @@
+.home-card {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+}
+
+.home-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.card-content {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--card-background);
+    color: var(--text-color);
+}
+
+.data-table th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.data-table tr:nth-child(even) {
+    background-color: var(--card-background);
+}
+
+.data-table tr:hover {
+    background-color: var(--accent-color);
+}
+
+.btn-print {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-print:hover {
+    background-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px) {
+    .home-card {
+        padding: 15px;
+    }
+
+    .data-table th, .data-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
