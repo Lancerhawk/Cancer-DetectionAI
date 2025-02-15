@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Profile.css';
 import Home from '../components/Profile/Home/Home'; 
 import CancerFinder from '../components/Profile/CancerFinder/CancerFinder';
@@ -13,7 +13,10 @@ function Profile() {
   const [rightSidebarMinimized, setRightSidebarMinimized] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [selectedSection, setSelectedSection] = useState('Home');
+  const [Sidebarisloaded, setSidebarisloaded] = useState(false);
+  const [Sidebarisloadedright, setSidebarisloadedright] = useState(false);
   const navigate = useNavigate();
+  const timer = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,6 +30,28 @@ function Profile() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (!leftSidebarMinimized) {
+      timer.current = setTimeout(() => {
+        setSidebarisloaded(true);
+      }, 200);
+      return () => clearTimeout(timer.current);
+    } else {
+      setSidebarisloaded(false);
+    }
+  }, [leftSidebarMinimized]);
+
+  useEffect(() => {
+    if (!rightSidebarMinimized) {
+      timer.current = setTimeout(() => {
+        setSidebarisloadedright(true);
+      }, 200);
+      return () => clearTimeout(timer.current);
+    } else {
+      setSidebarisloadedright(false);
+    }
+  }, [rightSidebarMinimized]);
 
   const handleSidebarClick = (section) => {
     if (section === 'CancerAnalysis') {
@@ -64,18 +89,74 @@ function Profile() {
           className="profile-toggle-btn left"
           onClick={() => isMobile && setLeftSidebarMinimized(!leftSidebarMinimized)}
         >
-          <span>{leftSidebarMinimized ? '>' : '<'}</span>
+          <span>{leftSidebarMinimized ? '<' : '>'}</span>
         </button>
-        {!leftSidebarMinimized && (
+        {!leftSidebarMinimized && Sidebarisloaded && (
           <div className="profile-sidebar-content">
             <ul>
-              <li><a href="#" onClick={() => handleSidebarClick('Home')}>Home</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('CancerFinder')}>CancerFinder</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('Appointments')}>Appointments</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('CancerAnalysis')}>CancerAnalysis</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('Exercises')}>Exercises</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('Notifications')}>Notifications</a></li>
-              <li><a href="#" onClick={() => handleSidebarClick('HelpAndSupports')}>Help and Supports</a></li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('Home')}
+                  className={selectedSection === 'Home' ? 'active' : ''}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('CancerFinder')}
+                  className={selectedSection === 'CancerFinder' ? 'active' : ''}
+                >
+                  CancerFinder
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('Appointments')}
+                  className={selectedSection === 'Appointments' ? 'active' : ''}
+                >
+                  Appointments
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('CancerAnalysis')}
+                  className={selectedSection === 'CancerAnalysis' ? 'active' : ''}
+                >
+                  CancerAnalysis
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('Exercises')}
+                  className={selectedSection === 'Exercises' ? 'active' : ''}
+                >
+                  Exercises
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('Notifications')}
+                  className={selectedSection === 'Notifications' ? 'active' : ''}
+                >
+                  Notifications
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleSidebarClick('HelpAndSupports')}
+                  className={selectedSection === 'HelpAndSupports' ? 'active' : ''}
+                >
+                  Help and Supports
+                </a>
+              </li>
             </ul>
           </div>
         )}
@@ -98,7 +179,7 @@ function Profile() {
         >
           <span>{rightSidebarMinimized ? '>' : '<'}</span>
         </button>
-        {!rightSidebarMinimized && (
+        {!rightSidebarMinimized && Sidebarisloadedright && (
           <div className="profile-sidebar-content">
             <div className="profile-box">
               <h3>Recent Notifications</h3>

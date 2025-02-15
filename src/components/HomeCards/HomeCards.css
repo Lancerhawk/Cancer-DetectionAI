@@ -16,13 +16,15 @@
 }
 
 .card-content {
-    overflow-x: auto;
+    max-height: 300px; /* Adjust this value to control the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    border: 2px solid black;
 }
 
 .data-table th,
@@ -33,9 +35,14 @@
     color: var(--text-color);
 }
 
+.data-table td{
+    border-bottom: 2px solid black;
+}
+
 .data-table th {
     background-color: var(--secondary-color);
     color: var(--text-color);
+    border: 2px solid black;
 }
 
 .data-table tr:nth-child(even) {

@@ -20,7 +20,7 @@
 }
 
 .profile-left-sidebar.minimized {
-    width: 50px;
+    width: 40px;
 }
 
 .profile-toggle-btn.left {
@@ -115,7 +115,7 @@
 }
 
 .profile-right-sidebar.minimized {
-    width: 50px;
+    width: 40px;
 }
 
 .profile-toggle-btn.right {
@@ -197,8 +197,52 @@
     box-shadow: 0 0 15px var(--accent-color), 0 0 30px var(--accent-color), 0 0 45px var(--accent-color);
 }
 
+.profile-left-sidebar a.active {
+    color: var(--accent-color);
+    font-weight: bold;
+    background-color: rgba(79, 209, 197, 0.1);
+}
+
+
 @media (max-width: 409px){
     .profile-right-sidebar {
         width: 250px;
+    }
+    .profile-left-sidebar.minimized{
+        width: 20px;
+    }
+
+    .profile-right-sidebar.minimized{
+        width: 20px;
+    }
+
+    .profile-toggle-btn.right{
+        right: 5px;
+        width: 40px;
+        z-index: 1000;
+        top: 10px;
+    }
+
+    .profile-toggle-btn.left{
+        z-index: 1000;
+        left: 5px;
+        width: 40px;
+        top: 10px;
+        
+    }
+
+    .profile-center {
+        padding: 10px 30px;
+        padding-right: 20px;
+    }
+
+    .profile-toggle-btn.left:hover {
+        transform: scale(1);
+        background-color: var(--accent-color);
+        box-shadow: 0 0 0px;
+    } .profile-toggle-btn.right:hover {
+        transform: scale(1);
+        background-color: var(--accent-color);
+        box-shadow: 0 0 0px;
     }
 }
