@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Profile.css';
 import Home from '../components/Profile/Home/Home'; 
 import CancerFinder from '../components/Profile/CancerFinder/CancerFinder';
@@ -6,17 +7,28 @@ import Appointments from '../components/Profile/Appointments/Appointments';
 import Exercises from '../components/Profile/Exercises/Exercises';
 import Notifications from '../components/Profile/Notification/Notification';
 import HelpAndSupports from '../components/Profile/Help/Help';
-import { useNavigate } from 'react-router-dom'; 
+import HomeDoctor from '../components/DoctorProfile/HomeDoctor/HomeDoctor';
+import Patients from '../components/DoctorProfile/Patients/Patients'; 
+import AppointmentPlannerPatients from '../components/DoctorProfile/AppointmentPlannerPatients/AppointmentPlannerPatients'; 
+import ExercisePlannerPatients from '../components/DoctorProfile/ExercisePlannerPatients/ExercisePlannerPatients'; 
+import PatientHome from '../components/PatientsProfile/PatientsHome/PatientsHome'; 
+import Blank from '../components/Blank'; 
+import ButtonChanger from '../components/Profile/CancerFinder/ButtonChanger';
 
 function Profile() {
   const [leftSidebarMinimized, setLeftSidebarMinimized] = useState(true);
   const [rightSidebarMinimized, setRightSidebarMinimized] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [selectedSection, setSelectedSection] = useState('Home');
+  const [selectedSection, setSelectedSection] = useState('Blank');
   const [Sidebarisloaded, setSidebarisloaded] = useState(false);
   const [Sidebarisloadedright, setSidebarisloadedright] = useState(false);
   const navigate = useNavigate();
   const timer = useRef(null);
+
+  const { state } = useLocation();
+  const role = state?.role || 'Individual'; 
+
+  const [sidebarRole] = useState(role); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,15 +66,20 @@ function Profile() {
   }, [rightSidebarMinimized]);
 
   const handleSidebarClick = (section) => {
+    setSelectedSection(section);
     if (section === 'CancerAnalysis') {
       navigate('/dashboard');
-    } else {
-      setSelectedSection(section);
     }
   };
 
   const renderSection = () => {
     switch (selectedSection) {
+      case 'Blank':
+        return <Blank />;
+      case 'AppointmentPlannerPatients':
+        return <AppointmentPlannerPatients />;
+      case 'ExercisePlannerPatients':
+        return <ExercisePlannerPatients />;
       case 'CancerFinder':
         return <CancerFinder />;
       case 'Appointments':
@@ -73,8 +90,216 @@ function Profile() {
         return <Notifications />;
       case 'HelpAndSupports':
         return <HelpAndSupports />;
+      case 'HomeDoctor':
+        return <HomeDoctor />;
+      case 'Patients':
+        return <Patients />;
+      case 'PatientHome':
+        return <PatientHome />; 
+      case 'Button':
+        return <ButtonChanger/>
       default:
         return <Home />;
+    }
+  };
+
+  // Ensure sidebar rendering is based on persistent role
+  const renderSidebar = () => {
+    if (sidebarRole === 'Doctor') {
+      return (
+        <ul>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('HomeDoctor')}
+              className={selectedSection === 'HomeDoctor' ? 'active' : ''}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Patients')}
+              className={selectedSection === 'Patients' ? 'active' : ''}
+            >
+              Patients
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Button')}
+              className={selectedSection === 'CancerFinder' ? 'active' : ''}
+            >
+              CancerFinder
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('AppointmentPlannerPatients')}
+              className={selectedSection === 'AppointmentPlannerPatients' ? 'active' : ''}
+            >
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('ExercisePlannerPatients')}
+              className={selectedSection === 'ExercisePlannerPatients' ? 'active' : ''}
+            >
+              Exercises
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('CancerAnalysis')}
+              className={selectedSection === 'CancerAnalysis' ? 'active' : ''}
+            >
+              CancerAnalysis
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Notifications')}
+              className={selectedSection === 'Notifications' ? 'active' : ''}
+            >
+              Notifications
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('HelpAndSupports')}
+              className={selectedSection === 'HelpAndSupports' ? 'active' : ''}
+            >
+              Help and Supports
+            </a>
+          </li>
+        </ul>
+      );
+    } else if (sidebarRole === 'Patient') {
+      return (
+        <ul>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('PatientHome')}  
+              className={selectedSection === 'PatientHome' ? 'active' : ''}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Button')}
+              className={selectedSection === 'CancerFinder' ? 'active' : ''}
+            >
+              CancerFinder
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('CancerAnalysis')}
+              className={selectedSection === 'CancerAnalysis' ? 'active' : ''}
+            >
+              CancerAnalysis
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Notifications')}
+              className={selectedSection === 'Notifications' ? 'active' : ''}
+            >
+              Notifications
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('HelpAndSupports')}
+              className={selectedSection === 'HelpAndSupports' ? 'active' : ''}
+            >
+              Help and Supports
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Home')}
+              className={selectedSection === 'Home' ? 'active' : ''}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Button')}
+              className={selectedSection === 'CancerFinder' ? 'active' : ''}
+            >
+              CancerFinder
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Appointments')}
+              className={selectedSection === 'Appointments' ? 'active' : ''}
+            >
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('CancerAnalysis')}
+              className={selectedSection === 'CancerAnalysis' ? 'active' : ''}
+            >
+              CancerAnalysis
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Exercises')}
+              className={selectedSection === 'Exercises' ? 'active' : ''}
+            >
+              Exercises
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('Notifications')}
+              className={selectedSection === 'Notifications' ? 'active' : ''}
+            >
+              Notifications
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => handleSidebarClick('HelpAndSupports')}
+              className={selectedSection === 'HelpAndSupports' ? 'active' : ''}
+            >
+              Help and Supports
+            </a>
+          </li>
+        </ul>
+      );
     }
   };
 
@@ -93,71 +318,7 @@ function Profile() {
         </button>
         {!leftSidebarMinimized && Sidebarisloaded && (
           <div className="profile-sidebar-content">
-            <ul>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('Home')}
-                  className={selectedSection === 'Home' ? 'active' : ''}
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('CancerFinder')}
-                  className={selectedSection === 'CancerFinder' ? 'active' : ''}
-                >
-                  CancerFinder
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('Appointments')}
-                  className={selectedSection === 'Appointments' ? 'active' : ''}
-                >
-                  Appointments
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('CancerAnalysis')}
-                  className={selectedSection === 'CancerAnalysis' ? 'active' : ''}
-                >
-                  CancerAnalysis
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('Exercises')}
-                  className={selectedSection === 'Exercises' ? 'active' : ''}
-                >
-                  Exercises
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('Notifications')}
-                  className={selectedSection === 'Notifications' ? 'active' : ''}
-                >
-                  Notifications
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => handleSidebarClick('HelpAndSupports')}
-                  className={selectedSection === 'HelpAndSupports' ? 'active' : ''}
-                >
-                  Help and Supports
-                </a>
-              </li>
-            </ul>
+            {renderSidebar()}
           </div>
         )}
       </div>

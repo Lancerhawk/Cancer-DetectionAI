@@ -1,3 +1,4 @@
+import './CancerDocs.css';
 function CancerDocs() {
   const cancerTypes = [
     {

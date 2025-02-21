@@ -1,4 +1,3 @@
-
 :root {
   --primary-color: #FF6F61; 
   --secondary-color: #FF9F00; 
@@ -7,6 +6,7 @@
   --background-color: #FFFBF0; 
   --nav-background: #FFEDDB; 
   --card-background: #FFFFFF; 
+  --chatbot-message: #FFF2E1; 
   --notif-sidecard: #FFF2E1; 
   --gradient-start: #FF6F61; 
   --gradient-end: #FFD700; 
@@ -25,6 +25,7 @@
   --accent-color: #007a74;
   --background-color: #2D3748;
   --nav-background: #1A202C;
+  --chatbot-message:#9e9e9e ; 
   --card-background: #4A5568;
   --notif-sidecard: #4A5568;
   --gradient-start: #0077B6;
@@ -63,7 +64,6 @@ body {
   padding: 0;
   overflow-y: auto; 
 }
-
 
 html {
   scroll-behavior: smooth; 
@@ -275,6 +275,10 @@ body {
   line-height: 1.2;
 }
 
+.section-title{
+  margin:0;
+}
+
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--text-color);
@@ -283,51 +287,6 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.section {
-  padding: 5rem 0;
-  min-height: calc(100vh - var(--navbar-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 0rem;
-  text-align: center;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.card {
-  background-color: var(--card-background);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: fadeIn 0.5s ease-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
-}
-
-.card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.card p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
 }
 
 /* Form Styles */

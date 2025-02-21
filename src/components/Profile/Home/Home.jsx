@@ -45,7 +45,7 @@ const Home = () => {
     <div className="home-container">
       <div className="welcome-message">
         <h1>Welcome, Arin Jain</h1>
-        <p className="age-gender">Age: 28 <br/> Gender: Male</p>
+        <p className="age-gender">Age: 20 <br/> Gender: Male</p>
         {/* <p className="diagnosis">Diagnosis: <strong>Stage 2 Non-Hodgkin Lymphoma</strong></p>
         <p className="treatment-plan">Treatment Plan: <strong>Chemotherapy + Radiation</strong></p>
         <p className="status">Status: Currently undergoing Chemotherapy</p> */}

@@ -1,0 +1,144 @@
+.cancerfinder-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancerfinder-modal-content {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 100%;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.cancerfinder-modal-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cancerfinder-modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cancerfinder-modal-content .cancerfinder-input-area,
+.cancerfinder-modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--card-background);
+}
+
+.cancerfinder-radio-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cancerfinder-radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.cancerfinder-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cancerfinder-modal-buttons button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.cancerfinder-modal-buttons button:hover {
+    background-color: var(--secondary-color);
+}
+
+.cancerfinder-modal-buttons button:focus {
+    outline: none;
+}
+
+.cancerfinder-print-button-container {
+    margin-top: 20px;
+}
+
+.cancerfinder-print-button-container button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.cancerfinder-print-button-container button:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .cancerfinder-modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .cancerfinder-modal-buttons button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .cancerfinder-print-button-container button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .cancerfinder-modal-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cancerfinder-modal-buttons button {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    .cancerfinder-print-button-container button {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}

@@ -1,128 +1,115 @@
-.cancer-detail {
-    padding: 10px;
-    margin-top: 0;
-    padding-top: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-  
-  .upload-section {
-    margin-bottom: 20px;
-  }
-  
-  .upload-section input {
-    margin-top: 10px;
-  }
-  
-  .begin-analysis {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .begin-analysis:hover {
-    background-color: var(--secondary-color);
-  }
-  
-  .alert-card {
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--card-background);
-  }
-  
-  .alert-normal {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-  }
-  
-  .alert-benign {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
-  }
-  
-  .alert-malignant {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
-  
-  .alert-warning {
-    background-color: #fff3cd;
-    color: #856404;
-  }
-  
-  .normal-message {
-    font-weight: bold;
-    color: #155724;
-  }
-  
-  .benign-message {
-    font-weight: bold;
-    color: #856404;
-  }
-  
-  .malignant-message {
-    font-weight: bold;
-    color: #721c24;
-  }
-  
-  .warning-message {
-    font-weight: bold;
-    color: #856404;
-  }
-  
-  .normal-precautions, .benign-precautions, .malignant-precautions, .warning-precautions {
-    font-size: 1.1em;
-    margin-top: 10px;
-  }
 
-  .heading-upload{
-    margin-bottom: 0;
-    margin-top: 10px;
-    padding-bottom: 0;
-  }
-  
-  .appointment-btn {
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 20px;
-    width: 100%;
-  }
-  
-  .appointment-btn:hover {
-    background-color: var(--primary-color);
-  }
-  
-  .scan-images {
-    margin-top: 20px;
-  }
-  
-  .scan-images img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-  }
-  
-.alert-card p{
-    color: black;
+
+.cancer-detail {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #2c3e50;
+}
 
+.upload-section {
+  margin-bottom: 30px;
+}
+
+.alert-card p{
+  color: black;
+}
+
+.upload-section input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.heading-upload {
+  font-weight: bold;
+}
+
+.begin-analysis {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.begin-analysis:hover {
+  background-color: var(--secondary-color);
+}
+
+.alert-card {
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background);
+}
+
+.alert-normal {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-benign {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.alert-malignant {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.appointment-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.appointment-btn:hover {
+  background-color: var(--primary-color);
+}
+
+.scan-images {
+  margin-top: 20px;
+}
+
+.scan-images img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
 
 .loading-container {
   text-align: center;
@@ -147,4 +134,47 @@
   color: red;
   font-size: 16px;
   margin-top: 20px;
+}
+
+
+.alert-malignant-pro-b {
+  background-color: #f5c6cb; 
+  border: 1px solid #e03131; 
+  color: #721c24;
+}
+
+.alert-malignant-pro-b h3 {
+  color: #721c24;
+}
+
+.alert-malignant-pro-b p {
+  color: #721c24;
+}
+
+.alert-malignant-pre-b {
+  background-color: #f0e5d8; 
+  border: 1px solid #e67e22; 
+  color: #8e5a3c; 
+}
+
+.alert-malignant-pre-b h3 {
+  color: #8e5a3c;
+}
+
+.alert-malignant-pre-b p {
+  color: #8e5a3c;
+}
+
+.alert-malignant-early-pre-b {
+  background-color: #d1ecf1; 
+  border: 1px solid #5bc0de; 
+  color: #0c5460; 
+}
+
+.alert-malignant-early-pre-b h3 {
+  color: #0c5460;
+}
+
+.alert-malignant-early-pre-b p {
+  color: #0c5460;
 }

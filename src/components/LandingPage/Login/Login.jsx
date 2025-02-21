@@ -1,18 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
+    role: 'Individual', 
   });
-  const navigate = useNavigate(); 
+  
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted:', formData);
 
-    navigate('/profile');
+    navigate('/profile', { state: { role: formData.role } });
   };
 
   return (
@@ -32,8 +34,9 @@ function Login() {
                   padding: '0.5rem',
                   marginTop: '0.5rem',
                   borderRadius: '0.25rem',
-                  border: '1px solid #ccc'
+                  border: '1px solid #ccc',
                 }}
+                required
               />
             </div>
             <div style={{ marginBottom: '1rem' }}>
@@ -47,9 +50,28 @@ function Login() {
                   padding: '0.5rem',
                   marginTop: '0.5rem',
                   borderRadius: '0.25rem',
-                  border: '1px solid #ccc'
+                  border: '1px solid #ccc',
                 }}
+                required
               />
+            </div>
+            <div style={{ marginBottom: '1rem' }}>
+              <label>Role:</label>
+              <select
+                value={formData.role}
+                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  marginTop: '0.5rem',
+                  borderRadius: '0.25rem',
+                  border: '1px solid #ccc',
+                }}
+              >
+                <option value="Individual">Individual</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Patient">Patient</option>
+              </select>
             </div>
             <button type="submit" className="btn btn-primary login-btn" style={{ width: '100%' }}>
               Login

@@ -7,8 +7,9 @@ import CancerDocs from './components/LandingPage/CancerDocs/CancerDocs';
 import Research from './components/LandingPage/Research/Research';
 import Login from './components/LandingPage/Login/Login';
 import Signup from './components/LandingPage/Signup/Signup';
-import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './Page/Profile';
+import Chatbot from './components/Chatbot/Chatbot';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -33,6 +34,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/Profile' element={<Profile/>} />
         </Routes>
+        <Chatbot /> {/* Chatbot will always be present */}
       </div>
     </Router>
   );
